@@ -1,15 +1,4 @@
 class Solution {
-    int solve(int i,int j,int n,int m,int[][] matrix,int[][] dp){
-        if(i==0)return matrix[i][j];
-        if(dp[i][j]!=-101)return dp[i][j];
-        int up=solve(i-1,j,n,m,matrix,dp);
-        int left=Integer.MAX_VALUE;
-        int right=Integer.MAX_VALUE;
-        if(j>0)left=solve(i-1,j-1,n,m,matrix,dp);
-        if(j<m-1)right=solve(i-1,j+1,n,m,matrix,dp);
-
-        return dp[i][j]=Math.min(up,Math.min(left,right))+matrix[i][j];
-    }
     public int minFallingPathSum(int[][] matrix) {
         int n=matrix.length;
         int m=matrix[0].length;
